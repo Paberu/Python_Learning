@@ -32,3 +32,6 @@ class Storage:
             except KeyError:
                 self.__data[habit] = dates
 
+    # For test purposes
+    def is_empty(self) -> bool:
+        return len(self.__data) == 0

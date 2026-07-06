@@ -10,12 +10,15 @@ class StorageTest(unittest.TestCase):
 
     def test_load_habits(self):
         self.storage.load_habits()
+        self.assertTrue(self.storage.is_empty())
 
     def test_save_habits(self):
         self.storage.save_habits()
+        self.assertTrue(self.storage.is_empty())
 
     def test_check_habits(self):
-        self.storage.check_habit('Спорт')
+        self.assertFalse(self.storage.check_habit('Спорт'))
 
     def test_add_habits(self):
         self.storage.add_habit_data({'Спорт':['2026-06-05', '2026-06-06']})
+        self.assertTrue(self.storage.check_habit('Спорт'))
