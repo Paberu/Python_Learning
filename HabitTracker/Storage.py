@@ -26,14 +26,20 @@ class Storage:
             self.__data[habit_name] = []
 
     def add_habit_data(self, habit_name : str, habit_dates: list) -> None:
-            try:
-                dates = self.__data[habit_name]
-                for date in habit_dates:
-                    if date not in dates:
-                        dates.append(date)
-                self.__data[habit_name] = dates
-            except KeyError:
-                self.__data[habit_name] = dates
+        try:
+            dates = self.__data[habit_name]
+            for date in habit_dates:
+                if date not in dates:
+                    dates.append(date)
+            self.__data[habit_name] = dates
+        except KeyError:
+            self.__data[habit_name] = habit_dates
+
+    def get_habit_names(self) -> list:
+        return self.__data.keys()
+
+    def get_habit_dates(self, habit_name: str) -> list:
+        return self.__data[habit_name]
 
     # For test purposes
     def is_empty(self) -> bool:
