@@ -11,6 +11,12 @@ class Tracker:
     def __init__(self):
         self.__storage = Storage()
 
+    def get_habit_names(self):
+        return self.__storage.get_habit_names()
+
+    def get_habit_dates(self, habit_name):
+        return self.__storage.get_habit_dates(habit_name)
+
     def add_habit_name(self, habit_name):
         self.__storage.add_habit_name(habit_name)
 
