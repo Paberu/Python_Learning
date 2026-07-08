@@ -16,12 +16,6 @@ class Tracker:
     def add_habit_name(self, habit_name):
         self.__storage.add_habit_name(habit_name)
 
-    def set_habit_date(self, habit_name, habit_date):
-        self.__storage.add_habit_data(habit_name, [habit_date])
-
-    def check_habit_today(self, habit_name):
-        self.set_habit_date(habit_name, date.today().strftime("%Y-%m-%d"))
-
     # Read
     def get_habits_names(self):
         return self.__storage.get_habits_names()
@@ -29,8 +23,19 @@ class Tracker:
     def get_habit_dates(self, habit_name):
         return self.__storage.get_habit_dates(habit_name)
 
+    # Update
+    def set_habit_date(self, habit_name, habit_date):
+        self.__storage.add_habit_data(habit_name, [habit_date])
 
+    def check_habit_today(self, habit_name):
+        self.set_habit_date(habit_name, date.today().strftime("%Y-%m-%d"))
 
+    # Delete
+    def delete_habit(self, habit_name):
+        self.__storage.delete_habit(habit_name)
+    #End of CRUD
+
+    # Control
     def save_habits(self):
         self.__storage.save_habits()
 

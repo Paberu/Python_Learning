@@ -41,6 +41,9 @@ class Storage:
     def get_habit_dates(self, habit_name: str) -> list:
         return self.__data[habit_name]
 
+    def delete_habit(self, habit_name: str) -> None:
+        return self.__data.pop(habit_name)
+
     # For test purposes
     def is_empty(self) -> bool:
         return len(self.__data) == 0
