@@ -40,7 +40,6 @@ class Tracker:
         self.__storage.save_habits()
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     tracker = Tracker()
     tracker.add_habit_name('Спорт')
