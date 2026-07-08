@@ -10,7 +10,7 @@ class TrackerTest(unittest.TestCase):
 
     def test_add_habit_name(self):
         self.tracker.add_habit_name('Спорт')
-        self.assertEqual(self.tracker.get_habit_names(), ['Спорт',])
+        self.assertEqual(self.tracker.get_habits_names(), ['Спорт', ])
 
     def test_set_habit_date(self):
         self.tracker.set_habit_date('Спорт', '2026-06-05')

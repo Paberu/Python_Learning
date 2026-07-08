@@ -29,7 +29,7 @@ class StorageTest(unittest.TestCase):
 
     def test_get_habit_names(self):
         self.storage.add_habit_data('Спорт', ['2026-06-05', '2026-06-06'])
-        self.assertEqual(self.storage.get_habit_names(), ['Спорт'])
+        self.assertEqual(self.storage.get_habits_names(), ['Спорт'])
 
     def test_get_habit_dates(self):
         self.storage.add_habit_data('Спорт', ['2026-06-05', '2026-06-06'])

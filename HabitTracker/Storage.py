@@ -35,7 +35,7 @@ class Storage:
         except KeyError:
             self.__data[habit_name] = habit_dates
 
-    def get_habit_names(self) -> list:
+    def get_habits_names(self) -> list:
         return list(self.__data)
 
     def get_habit_dates(self, habit_name: str) -> list:
