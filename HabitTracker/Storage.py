@@ -7,9 +7,12 @@ class Storage:
         self.__path = 'storage.json'
         self.__data = self.load_habits()  # dict
 
+    def get_data(self):
+        return self.__data
+
     def load_habits(self) -> dict:
         try:
-            with open(self.__path, 'r') as json_file:
+            with open(self.__path, 'r',  encoding='utf-8') as json_file:
                 return json.load(json_file)
         except FileNotFoundError:
             return {}
