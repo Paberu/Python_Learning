@@ -1,4 +1,3 @@
-import os
 from datetime import timedelta, date
 
 from rich.console import Console
