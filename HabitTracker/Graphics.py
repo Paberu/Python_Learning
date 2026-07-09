@@ -11,7 +11,7 @@ class Graphics:
         self.console = Console()
 
     def show_heatmap(self, habit_dict):
-        os.system('cls' if os.name == 'nt' else 'clear')
+        print("\033[2J\033[H", end="")
         days = [date.today() - timedelta(days=i) for i in range(29, -1, -1)]
         habit_column_width = max(len(habit_name) for habit_name in habit_dict) + 2
 
