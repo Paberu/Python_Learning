@@ -1,3 +1,4 @@
+import os
 from datetime import timedelta, date
 
 from rich.console import Console
@@ -10,6 +11,7 @@ class Graphics:
         self.console = Console()
 
     def show_heatmap(self, habit_dict):
+        os.system('cls' if os.name == 'nt' else 'clear')
         days = [date.today() - timedelta(days=i) for i in range(29, -1, -1)]
         habit_column_width = max(len(habit_name) for habit_name in habit_dict) + 2
 
