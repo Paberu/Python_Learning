@@ -3,13 +3,14 @@ from datetime import date
 import rich
 import click
 
-
+from Graphics import Graphics
 from Storage import Storage
 
 class Tracker:
 
     def __init__(self):
         self.__storage = Storage()
+        self.__graphics = Graphics()
 
     # CRUD - create, read, update, delete
     # Create
@@ -39,11 +40,23 @@ class Tracker:
     def save_habits(self):
         self.__storage.save_habits()
 
+    def display(self):
+        self.__graphics.show_heatmap(self.__storage.get_data())
+
 
 if __name__ == '__main__':
     tracker = Tracker()
-    tracker.add_habit_name('Спорт')
-    tracker.set_habit_date('Спорт', '2026-07-06')
-    tracker.set_habit_date('Спорт', '2026-07-07')
-    tracker.check_habit_today('Спорт')
-    tracker.save_habits()
+    while True:
+        tracker.save_habits()
+        tracker.display()
+        command, parameter = input().split(maxsplit=1)
+        command = command.lower()
+        if command == 'q' or command == 'quit':
+            break
+        elif command == 'add':
+            tracker.add_habit_name(parameter)
+        elif command == 'set':
+            name, date = parameter.rsplit(maxsplit=1)
+            tracker.set_habit_date(name, date)
+        elif command == 'delete':
+            tracker.delete_habit(parameter)
