@@ -33,7 +33,8 @@ class Tracker:
 
     # Delete
     def delete_habit(self, habit_name):
-        self.__storage.delete_habit(habit_name)
+        if habit_name in self.get_habits_names():
+            self.__storage.delete_habit(habit_name)
     #End of CRUD
 
     # Control
